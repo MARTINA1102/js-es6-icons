@@ -1,0 +1,36 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.titolo{
+	background-color: white;
+	color:rgb(28, 153, 211);
+	margin-top: 1rem;
+	margin-left: .5rem;
+}
+.selezione{
+	background-color: rgb(28, 153, 211);
+	color: white;
+	text-align: center;
+	padding: 1rem;
+}
+main{
+	background-color: rgb(203, 203, 203);
+	padding: 1rem;
+
+
+}
+.container{
+	max-width:1200px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	gap:3rem;
+}
+.card{
+	flex: 0 0 15%;
+	text-align: center;
+	padding:.5rem 1rem;
+	background-color: rgb(236, 242, 242);
+}
