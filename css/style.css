@@ -33,4 +33,6 @@ main{
 	text-align: center;
 	padding:.5rem 1rem;
 	background-color: rgb(236, 242, 242);
+	border-radius: 5px;
+	text-transform: uppercase;
 }

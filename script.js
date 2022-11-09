@@ -144,7 +144,7 @@ function geneateCard(obj) {
 	return `
 		<div class="card">
 			<div class="content">
-				<i class="${obj.prefix}solid ${obj.prefix}${obj.name}"></i>
+				<i class="${obj.prefix}solid ${obj.prefix}${obj.name}" style=color:${obj.color}></i>
 				<h2>${obj.name}</h2>
 			</div>
 		</div>
