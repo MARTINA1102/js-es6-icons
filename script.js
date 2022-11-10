@@ -135,7 +135,13 @@ const arrEmoticon=[
 ];
 
 const eleContainer=document.querySelector('.container');
-renderInterface(eleContainer)
+const eleSelect=document.querySelector('#tipo-icona');
+
+
+popSel(arrEmoticon,eleSelect);
+randomizeColors(arrEmoticon);
+renderInterface(eleContainer);
+eleSelect.addEventListener('change', filterIco);
 
 function renderInterface(eleContainer) {
 	arrEmoticon.forEach(objIcon => eleContainer.innerHTML += geneateCard(objIcon));
@@ -150,3 +156,41 @@ function geneateCard(obj) {
 		</div>
 		`;
 }
+
+function popSel(arrData,ele){
+	const arrTypes=[];
+	arrEmoticon.forEach(objIco => arrTypes.includes(objIco.type)?'':arrTypes.push(objIco.type));
+
+	console.log(arrTypes);
+	arrTypes.forEach(type=>ele.innerHTML+=`<option value="${type}">${type}</option>`);
+}
+
+function filterIco() {
+	const selectedType = this.value; 
+	
+	if (selectedType !== '') {
+		arrIconsFiltered = arrEmoticon.filter(objIcon => objIcon.type === selectedType)
+	} else {
+		arrIconsFiltered = arrEmoticon;
+	}
+	console.log(arrIconsFiltered);
+	renderInterface(arrIconsFiltered, eleContainer);
+}
+
+function randomizeColors(arrEmoticon) {
+	arrEmoticon.forEach(objIcon => objIcon.color = getRandomColor());
+}
+
+function getRandomColor() {
+	const acceptableChars = '0123456789ABCDEF';
+	let color = '#'
+	for (let i = 0; i < 6; i++) {
+		color += acceptableChars[getRandomInteger(0, 15)];
+	}
+	return color; // #xxxxxx
+}
+
+function getRandomInteger(min, max) {
+	return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
